@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import { Vibrary } from "./components/Vibrary";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Vibrary />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
