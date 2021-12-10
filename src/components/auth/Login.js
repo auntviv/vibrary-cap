@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom"
 import "./Login.css"
 
-export const Login = () => {
+// props is the first argument to a react component and it is an object
+// we can simply destructure values from it so we don't have to say props.<thing>
+export const Login = ({ setAuthorizedUser }) => {
     const [email, set] = useState("")
     const existDialog = useRef()
     const history = useHistory()
@@ -20,6 +22,7 @@ export const Login = () => {
             .then(exists => {
                 if (exists) {
                     localStorage.setItem("vibrary_user", exists.id)
+                    setAuthorizedUser(true)
                     history.push("/")
                 } else {
                     existDialog.current.showModal()

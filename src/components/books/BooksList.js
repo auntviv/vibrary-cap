@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react"
 import { useHistory } from "react-router-dom"
+import { BookForm } from "./BookForm"
 
 export const BooksList = () => {
     const [books, setBooks] =useState([])
@@ -22,7 +23,7 @@ export const BooksList = () => {
     return (
         <>
         <div>
-             <button onClick={() => history.push("/book/create")}>Share your favorite book!</button>
+             <button onClick={() => history.push("/book/create")}>Share your favorite book!{BookForm}</button>
         </div>
 
         <h1>Recommend a Book to the Vibrary</h1>
