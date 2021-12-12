@@ -1,38 +1,21 @@
-import React, { useEffect, useState} from "react"
-
+import React, { useEffect, useState } from "react";
 
 export const YoungAdultList = () => {
-    const [youngAdults, setYoungAdults] =useState([])
+  const [youngAdults, setYoungAdults] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:8088/books?ageId=3")
+      .then((res) => res.json())
+      .then((agesArray) => {
+        setYoungAdults(agesArray);
+      });
+  }, []);
 
-    useEffect(
-        () => {
-            fetch("http://localhost:8088/youngAdult")
-                .then(res => res.json())
-                .then((agesArray) => { 
-                    setYoungAdults(agesArray)
-                    })
-                
-        },
-        []
-    )
-
-
-    return (
-        <>
-        <div>
-             <button>Share your favorite book!</button>
-        </div>
-
-        <h1>Recommend a Book to the Vibrary</h1>
-
-        {
-            youngAdults.map(
-                (youngAdultObject) => { 
-                    return <h2>{youngAdultObject.name}</h2>
-                }
-            )
-        }
-        </>
-    )
-}
+  return (
+    <>
+      {youngAdults.map((youngAdultObject) => {
+        return <h2 key={JSON.stringify(youngAdultObject)}>{youngAdultObject.name}</h2>;
+      })}
+    </>
+  );
+};

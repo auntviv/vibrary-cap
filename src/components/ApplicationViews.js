@@ -8,17 +8,17 @@ import { YoungAdultList } from "./ages/YoungAdultList";
 import { NavBar } from "./nav/NavBar";
 import { Login } from "./auth/Login";
 import { Register } from "./auth/Register";
+import Details  from "./books/Details";
 
 export const ApplicationViews = () => {
   const [authorizedUser, setAuthorizedUser] = useState(false);
 
   useEffect(() => {
-    const vibraryUser = localStorage.getItem("vibrary_user")
+    const vibraryUser = localStorage.getItem("vibrary_user");
     if (vibraryUser) {
-        setAuthorizedUser(true)
+      setAuthorizedUser(true);
     }
-  }, []
-  )
+  }, []);
   return (
     <>
       {authorizedUser && <NavBar />}
@@ -26,7 +26,7 @@ export const ApplicationViews = () => {
         path="/"
         render={() => {
           if (authorizedUser) {
-            return  <Redirect to="/books" />;
+            return <Redirect to="/books" />;
           } else {
             return <Redirect to="/login" />;
           }
@@ -52,6 +52,9 @@ export const ApplicationViews = () => {
       </Route>
       <Route path="/youngadult">
         <YoungAdultList />
+      </Route>
+      <Route path="/details/:id">
+        <Details />
       </Route>
     </>
   );
