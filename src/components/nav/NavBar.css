@@ -2,9 +2,15 @@
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
+    
 }
 
-.navbar__item {
+.navbar__item { background-color: #fff;
+    color: grey;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     flex-basis: 20%;
     list-style-type: none;
 }

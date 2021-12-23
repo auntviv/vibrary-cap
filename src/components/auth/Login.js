@@ -21,8 +21,8 @@ export const Login = ({ setAuthorizedUser }) => {
     existingUserCheck().then((exists) => {
       if (exists) {
         localStorage.setItem("vibrary_user", exists.id);
-        setAuthorizedUser(true);
-        history.push("/");
+        setAuthorizedUser(exists.id);
+        history.push("/books");
       } else {
         existDialog.current.showModal();
       }
@@ -43,6 +43,7 @@ export const Login = ({ setAuthorizedUser }) => {
 
       <section>
         <form className="form--login" onSubmit={handleLogin}>
+          <h1>Vibrary</h1>
           <h2>Please sign in</h2>
           <fieldset>
             <label htmlFor="inputEmail"> Email address </label>

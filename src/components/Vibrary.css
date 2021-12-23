@@ -1,22 +1,29 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital@1&display=swap');
 
 /*Typography
 --------------------------------------------------------------*/
-body,
-button,
+body {
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+button
 input,
 select,
 textarea {
   color: #404040;
-  font-family: "Comfortaa", Arial, sans-serif;
+  font-family: "Montserrat", arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Patua One", serif;
-  letter-spacing: 2px;
+  font-family: "Cardo", serif;
+  letter-spacing: 1px;
 }
 
 p {
