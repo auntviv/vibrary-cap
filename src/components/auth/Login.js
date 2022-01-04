@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import logo from "../Images/newlogo.png";
 import "./Login.css";
 
 // props is the first argument to a react component and it is an object
@@ -43,10 +44,10 @@ export const Login = ({ setAuthorizedUser }) => {
 
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1>Vibrary</h1>
-          <h2>Please sign in</h2>
+        <img src={logo} alt="Vibrary Logo" width={200} height={200} background-color="black"/>
+          <h2>Welcome!</h2>
           <fieldset>
-            <label htmlFor="inputEmail"> Email address </label>
+            <label htmlFor="inputEmail"> Login: </label>
             <input
               type="email"
               onChange={(evt) => set(evt.target.value)}

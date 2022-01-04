@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+
 export const YouthList = () => {
   const [youths, setYouths] = useState([]);
 
@@ -14,14 +15,18 @@ export const YouthList = () => {
   }, []);
 
   return (
-    <>
+    <> 
       {youths.map((youthObject) => {
+
         return (
           <Link to={`/details/${youthObject.id}`}>
-            <h2 key={JSON.stringify(youthObject)}>{youthObject.name}</h2>
+            <h1 key={JSON.stringify(youthObject)}>
+            <h1>{youthObject?.name}</h1>
+            <img src={youthObject?.imageUrl} height="400" width="300"/></h1>{" "}
           </Link>
         );
-      })}
+      })} 
+     
     </>
   );
 };

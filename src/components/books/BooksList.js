@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import "./Books.css";
+import library from "../Images/library.png";
+import "./BookList.css";
 
 export const BooksList = ({ authorizedUser }) => {
   const [books, setBooks] = useState([]);
@@ -8,11 +9,11 @@ export const BooksList = ({ authorizedUser }) => {
   useEffect(() => {
     fetch("http://localhost:8088/books")
       .then((res) => res.json())
-       // when this comes back we need to convert jsonstring into actual JavaScript
+      // when this comes back we need to convert jsonstring into actual JavaScript
       .then((bookArray) => {
         setBooks(bookArray);
         //maybe an async call since it's callback will be a promise?
-      return () => {};
+        return;
       });
   }, []);
 
@@ -33,23 +34,24 @@ export const BooksList = ({ authorizedUser }) => {
 
   return (
     <>
-      <h1>Welcome to the Vibrary!</h1>
-      <div>
+       <h2>
+          <img src={library} alt="library" width={400} height={100} background-color="black"/>
         <button onClick={() => history.push("/book/create")}>
-          Share your favorite book!
+          Add a Book!
         </button>
-      </div>
+        </h2> 
+      
 
-      <ul>
+      <ul className="bookListObj">
         {books.map((bookObject) => {
           return (
             <li key={JSON.stringify(bookObject)}>
               <Link to={`/details/${bookObject.id}`}>
                 <img src={bookObject?.imageUrl} height="300" width="200" />
-                <h2>{bookObject.name}</h2>
               </Link>
               {authorizedUser === bookObject.userId && (
                 <>
+                <div>
                   <button
                     className="btn-primary"
                     onClick={() => deleteBook(bookObject.id)}
@@ -62,6 +64,7 @@ export const BooksList = ({ authorizedUser }) => {
                   >
                     Edit
                   </button>
+                  </div>
                 </>
               )}
             </li>

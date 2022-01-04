@@ -7,7 +7,7 @@ export const YoungAdultList = () => {
   useEffect(() => {
     fetch("http://localhost:8088/books?ageId=3")
       .then((res) => res.json())
-        // when this comes back we need to convert jsonstring into actual JavaScript
+      // when this comes back we need to convert jsonstring into actual JavaScript
       .then((agesArray) => {
         setYoungAdults(agesArray);
       });
@@ -18,10 +18,10 @@ export const YoungAdultList = () => {
       {youngAdults.map((youngAdultObject) => {
         return (
           <Link to={`/details/${youngAdultObject.id}`}>
-            <h2 key={JSON.stringify(youngAdultObject)}>
-              {youngAdultObject.name}
-            </h2>
-            {" "}
+            <h1 key={JSON.stringify(youngAdultObject)}>
+            <h1>{youngAdultObject?.name}</h1>
+              <img src={youngAdultObject?.imageUrl} height="400" width="300" />
+            </h1>
           </Link>
         );
       })}

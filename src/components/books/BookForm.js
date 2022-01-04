@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import "./BookForm.css";
+
 
 export const BookForm = () => {
   const [ages, setAges] = useState([]);
@@ -13,7 +15,7 @@ export const BookForm = () => {
     quote: "",
     imageUrl: "",
     recommendation: false,
-    ageId: null,
+    ageId: 0,
   });
   //useState returns a pair of values, current state and update
 

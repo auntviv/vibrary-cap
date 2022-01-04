@@ -11,8 +11,8 @@ import { Register } from "./auth/Register"
 import Details  from "./books/Details"
 
 export const ApplicationViews = () => {
-  const [authorizedUser, setAuthorizedUser] = useState(0);
 
+  const [authorizedUser, setAuthorizedUser] = useState(0);
   useEffect(() => {
     const vibraryUser = parseInt(localStorage.getItem("vibrary_user"))
     //just setting the current vibrary user to the authorized user
@@ -23,7 +23,7 @@ export const ApplicationViews = () => {
   }, [])
   return (
     <>
-      {authorizedUser && <NavBar setAuthorizedUser={setAuthorizedUser}/>}
+      {!!authorizedUser && <NavBar setAuthorizedUser={setAuthorizedUser}/>}
       <Route
         path="/"
         render={() => {

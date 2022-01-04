@@ -18,6 +18,7 @@ fieldset {
 
 .form--login > fieldset > input[type="email"] {
   width: 25em;
+  color: #000000;
 }
 
 .label--login {
@@ -33,10 +34,10 @@ fieldset {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  color: #000000;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #f2dad1;
   border-radius: 0.25rem;
   -webkit-transition: border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -52,7 +53,7 @@ fieldset {
   z-index: 1;
   min-height: 25rem;
   min-width: 45rem;
-  background-color: hsla(0, 0%, 100%, 0.4);
+  background-color: #f2dad1;
   background-blend-mode: overlay;
   background-repeat: no-repeat;
 }

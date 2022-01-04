@@ -18,8 +18,10 @@ export const TeenList = () => {
       {teens.map((teenObject) => {
         return (
           <Link to={`/details/${teenObject.id}`}>
-            <h2 key={JSON.stringify(teenObject)}>{teenObject.name}</h2>{" "}
-          </Link>
+            <h1 key={JSON.stringify(teenObject)}>
+              <h1>{teenObject?.name}</h1>
+            <img src={teenObject?.imageUrl} height="400" width="300" /></h1>{" "}
+          </Link> 
         );
       })}
     </>
